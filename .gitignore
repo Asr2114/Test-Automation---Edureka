@@ -1,0 +1,9 @@
+# Robot Framework generated output
+reports/*.html
+reports/*.xml
+reports/*.png
+screenshots/*.png
+
+# Python cache
+__pycache__/
+*.py[cod]

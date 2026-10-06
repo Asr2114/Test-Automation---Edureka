@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.7 on win32)" generated="2026-09-18T11:58:56.826850" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests">
+<suite id="s1-s1" name="Contact-Us" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\contact-us">
+<suite id="s1-s1-s1" name="TC CONTACT 02" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\contact-us\TC_CONTACT_02.robot">
+<test id="s1-s1-s1-t1" name="TC_CONTACT_02 - Verify Valid Contact Submission" line="10">
+<kw name="Get Valid Contact Data" owner="contactKeywords">
+<kw name="Get Test Case Value" owner="testdata">
+<msg time="2026-09-18T11:58:57.708850" level="INFO">${data} = Name: Abhishek, Email: abhishek@test.com, Message: Need Course Details</msg>
+<var>${data}</var>
+<arg>TC_CONTACT_02</arg>
+<arg>Test Data</arg>
+<arg>${WORKBOOK_PATH}</arg>
+<doc>Return one value from the Excel ``Test Cases`` sheet by test case ID.</doc>
+<status status="PASS" start="2026-09-18T11:58:57.698045" elapsed="0.010913"/>
+</kw>
+<kw name="Parse Contact Data" owner="testdata">
+<msg time="2026-09-18T11:58:57.709901" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<arg>${data}</arg>
+<doc>Parse the comma-separated contact data used by the workbook.</doc>
+<status status="PASS" start="2026-09-18T11:58:57.709516" elapsed="0.000489"/>
+</kw>
+<return>
+<value>${contact}</value>
+<status status="PASS" start="2026-09-18T11:58:57.710205" elapsed="0.000119"/>
+</return>
+<msg time="2026-09-18T11:58:57.710588" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<status status="PASS" start="2026-09-18T11:58:57.696042" elapsed="0.014600"/>
+</kw>
+<kw name="Open Contact Page" owner="contactKeywords">
+<kw name="Open Application At URL" owner="commomKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:58:57.713103" level="INFO">Opening browser 'chrome' to base url 'https://www.edureka.co/contact-us'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-18T11:58:57.712791" elapsed="7.752735"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-09-18T11:59:05.465860" elapsed="0.001404"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-18T11:59:05.467490" elapsed="0.512267"/>
+</kw>
+<arg>${CONTACT_URL}</arg>
+<status status="PASS" start="2026-09-18T11:58:57.712151" elapsed="8.267835"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:05.981879" elapsed="0.047778"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:05.980332" elapsed="0.049587"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_FORM}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.030268" elapsed="0.042725"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:58:57.711257" elapsed="8.361938"/>
+</kw>
+<kw name="Submit Contact Form With Valid Data" owner="contactKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_NAME}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.074945" elapsed="0.024125"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:06.100635" level="INFO">Typing text 'Abhishek' into text field 'id=first_name'.</msg>
+<arg>${CONTACT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.099515" elapsed="0.227181"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:06.327330" level="INFO">Typing text '8951755408' into text field 'id=mobile'.</msg>
+<arg>${CONTACT_PHONE_INPUT}</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.326974" elapsed="0.182388"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:06.510226" level="INFO">Typing text 'abhishek@test.com' into text field 'id=email'.</msg>
+<arg>${CONTACT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.509745" elapsed="0.249137"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:06.759775" level="INFO">Typing text 'Need Course Details' into text field 'id=query'.</msg>
+<arg>${CONTACT_QUERY}</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.759233" elapsed="0.133439"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-18T11:59:06.892962" elapsed="0.324223"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.217540" elapsed="0.041178"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:07.260420" level="INFO">Clicking element 'xpath=//form[@id="contactform"]//button[normalize-space()="Send Message"]'.</msg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.259950" elapsed="0.104464"/>
+</kw>
+<arg>5x</arg>
+<arg>1s</arg>
+<arg>Click Element</arg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.259042" elapsed="0.105551"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.365379" elapsed="0.008034"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.364919" elapsed="0.008648"/>
+</kw>
+<arg>${contact}[name]</arg>
+<arg>${CONTACT_PHONE}</arg>
+<arg>${contact}[email]</arg>
+<arg>${contact}[message]</arg>
+<status status="PASS" start="2026-09-18T11:59:06.074064" elapsed="1.299574"/>
+</kw>
+<kw name="Verify Contact Success Message Is Displayed" owner="contactKeywords">
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.374708" elapsed="0.004399"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.374457" elapsed="0.004789"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:09.446190" level="INFO">Current page does not contain element 'css=#contactform .all_error_handler:not(.hide)'.</msg>
+<arg>${CONTACT_ERRORS}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:07.379483" elapsed="2.066832"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:09.457177" level="INFO">Current location contains '/contact-us'.</msg>
+<arg>/contact-us</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.446537" elapsed="0.010772"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:07.374092" elapsed="2.083334"/>
+</kw>
+<doc>Submits valid data from the workbook.</doc>
+<tag>contact</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2026-09-18T11:58:57.694599" elapsed="11.763204"/>
+</test>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Failure Screenshot" owner="commomKeywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:09.677301" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/failure-68.png"&gt;&lt;img src="../screenshots/failure-68.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}${/}failure-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.460145" elapsed="0.217319"/>
+</kw>
+<doc>Saves a screenshot with a stable, timestamped Robot name.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.459569" elapsed="0.218087"/>
+</kw>
+<kw name="Close Application" owner="commomKeywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.678231" elapsed="2.563268"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.677976" elapsed="2.563687"/>
+</kw>
+<arg>Capture Failure Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-09-18T11:59:09.458990" elapsed="2.782752"/>
+</kw>
+<doc>Check a valid Contact Us form submission.</doc>
+<status status="PASS" start="2026-09-18T11:58:56.900697" elapsed="15.341112"/>
+</suite>
+<suite id="s1-s1-s2" name="TC CONTACT 04" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\contact-us\TC_CONTACT_04.robot">
+<test id="s1-s1-s2-t1" name="TC_CONTACT_04 - Verify Multiple Successful Submissions" line="10">
+<kw name="Get Valid Contact Data" owner="contactKeywords">
+<kw name="Get Test Case Value" owner="testdata">
+<msg time="2026-09-18T11:59:12.257257" level="INFO">${data} = Name: Abhishek, Email: abhishek@test.com, Message: Need Course Details</msg>
+<var>${data}</var>
+<arg>TC_CONTACT_02</arg>
+<arg>Test Data</arg>
+<arg>${WORKBOOK_PATH}</arg>
+<doc>Return one value from the Excel ``Test Cases`` sheet by test case ID.</doc>
+<status status="PASS" start="2026-09-18T11:59:12.253759" elapsed="0.003559"/>
+</kw>
+<kw name="Parse Contact Data" owner="testdata">
+<msg time="2026-09-18T11:59:12.257739" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<arg>${data}</arg>
+<doc>Parse the comma-separated contact data used by the workbook.</doc>
+<status status="PASS" start="2026-09-18T11:59:12.257523" elapsed="0.000247"/>
+</kw>
+<return>
+<value>${contact}</value>
+<status status="PASS" start="2026-09-18T11:59:12.257841" elapsed="0.000073"/>
+</return>
+<msg time="2026-09-18T11:59:12.258060" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<status status="PASS" start="2026-09-18T11:59:12.253406" elapsed="0.004681"/>
+</kw>
+<kw name="Open Contact Page" owner="contactKeywords">
+<kw name="Open Application At URL" owner="commomKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:12.259912" level="INFO">Opening browser 'chrome' to base url 'https://www.edureka.co/contact-us'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-18T11:59:12.259568" elapsed="6.447775"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-09-18T11:59:18.707745" elapsed="0.002177"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-18T11:59:18.710287" elapsed="0.051837"/>
+</kw>
+<arg>${CONTACT_URL}</arg>
+<status status="PASS" start="2026-09-18T11:59:12.259013" elapsed="6.503358"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:18.763300" elapsed="0.492901"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:18.762839" elapsed="0.493584"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_FORM}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:19.256691" elapsed="0.026606"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:12.258533" elapsed="7.024946"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Submit Contact Form With Valid Data" owner="contactKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_NAME}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:19.286965" elapsed="0.019761"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:19.307573" level="INFO">Typing text 'Abhishek' into text field 'id=first_name'.</msg>
+<arg>${CONTACT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:19.307078" elapsed="0.191692"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:19.499813" level="INFO">Typing text '8951755408' into text field 'id=mobile'.</msg>
+<arg>${CONTACT_PHONE_INPUT}</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:19.499180" elapsed="0.189664"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:19.689644" level="INFO">Typing text 'abhishek@test.com' into text field 'id=email'.</msg>
+<arg>${CONTACT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:19.689118" elapsed="0.338900"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:20.029117" level="INFO">Typing text 'Need Course Details' into text field 'id=query'.</msg>
+<arg>${CONTACT_QUERY}</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.028503" elapsed="0.135939"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.164788" elapsed="0.529783"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.694953" elapsed="0.028225"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:20.724721" level="INFO">Clicking element 'xpath=//form[@id="contactform"]//button[normalize-space()="Send Message"]'.</msg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.724326" elapsed="0.136216"/>
+</kw>
+<arg>5x</arg>
+<arg>1s</arg>
+<arg>Click Element</arg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.723524" elapsed="0.137168"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.861437" elapsed="0.004546"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.861012" elapsed="0.005099"/>
+</kw>
+<arg>${contact}[name]</arg>
+<arg>${CONTACT_PHONE}</arg>
+<arg>${contact}[email]</arg>
+<arg>${contact}[message]</arg>
+<status status="PASS" start="2026-09-18T11:59:19.286145" elapsed="1.580035"/>
+</kw>
+<kw name="Verify Contact Success Message Is Displayed" owner="contactKeywords">
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.867154" elapsed="0.006994"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.866780" elapsed="0.007578"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:22.932956" level="INFO">Current page does not contain element 'css=#contactform .all_error_handler:not(.hide)'.</msg>
+<arg>${CONTACT_ERRORS}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:20.874633" elapsed="2.058457"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:22.939163" level="INFO">Current location contains '/contact-us'.</msg>
+<arg>/contact-us</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-09-18T11:59:22.933326" elapsed="0.005945"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:20.866395" elapsed="2.072989"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Reload Page" owner="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" start="2026-09-18T11:59:22.940396" elapsed="1.427586"/>
+</kw>
+<arg>${submission} == 1</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<status status="PASS" start="2026-09-18T11:59:22.939620" elapsed="1.428526"/>
+</kw>
+<var name="${submission}">1</var>
+<status status="PASS" start="2026-09-18T11:59:19.285319" elapsed="5.082907"/>
+</iter>
+<iter>
+<kw name="Submit Contact Form With Valid Data" owner="contactKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_NAME}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:24.369457" elapsed="0.033521"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:24.405063" level="INFO">Typing text 'Abhishek' into text field 'id=first_name'.</msg>
+<arg>${CONTACT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:24.403549" elapsed="0.102573"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:24.507011" level="INFO">Typing text '8951755408' into text field 'id=mobile'.</msg>
+<arg>${CONTACT_PHONE_INPUT}</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:24.506503" elapsed="0.259857"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:24.767230" level="INFO">Typing text 'abhishek@test.com' into text field 'id=email'.</msg>
+<arg>${CONTACT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:24.766728" elapsed="0.172739"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:24.941064" level="INFO">Typing text 'Need Course Details' into text field 'id=query'.</msg>
+<arg>${CONTACT_QUERY}</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:24.940275" elapsed="0.155221"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.095753" elapsed="0.277845"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.373952" elapsed="0.021439"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:25.396591" level="INFO">Clicking element 'xpath=//form[@id="contactform"]//button[normalize-space()="Send Message"]'.</msg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.396325" elapsed="0.096671"/>
+</kw>
+<arg>5x</arg>
+<arg>1s</arg>
+<arg>Click Element</arg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.395721" elapsed="0.097447"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.493980" elapsed="0.006087"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.493503" elapsed="0.006778"/>
+</kw>
+<arg>${contact}[name]</arg>
+<arg>${CONTACT_PHONE}</arg>
+<arg>${contact}[email]</arg>
+<arg>${contact}[message]</arg>
+<status status="PASS" start="2026-09-18T11:59:24.368836" elapsed="1.131547"/>
+</kw>
+<kw name="Verify Contact Success Message Is Displayed" owner="contactKeywords">
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.501379" elapsed="0.004598"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.501111" elapsed="0.005024"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:27.509000" level="INFO">Current page does not contain element 'css=#contactform .all_error_handler:not(.hide)'.</msg>
+<arg>${CONTACT_ERRORS}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:25.506330" elapsed="2.002829"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:27.514032" level="INFO">Current location contains '/contact-us'.</msg>
+<arg>/contact-us</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.509384" elapsed="0.004790"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:25.500730" elapsed="2.013598"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${submission} == 1</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if `condition` is true.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.514669" elapsed="0.000665"/>
+</kw>
+<var name="${submission}">2</var>
+<status status="PASS" start="2026-09-18T11:59:24.368503" elapsed="3.146952"/>
+</iter>
+<var>${submission}</var>
+<value>1</value>
+<value>3</value>
+<status status="PASS" start="2026-09-18T11:59:19.284413" elapsed="8.231148"/>
+</for>
+<doc>Submits the same valid data twice.</doc>
+<tag>contact</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-09-18T11:59:12.252572" elapsed="15.263425"/>
+</test>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Failure Screenshot" owner="commomKeywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:27.730467" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/failure-69.png"&gt;&lt;img src="../screenshots/failure-69.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}${/}failure-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.517985" elapsed="0.212768"/>
+</kw>
+<doc>Saves a screenshot with a stable, timestamped Robot name.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.517681" elapsed="0.213315"/>
+</kw>
+<kw name="Close Application" owner="commomKeywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.731599" elapsed="2.457355"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.731297" elapsed="2.457942"/>
+</kw>
+<arg>Capture Failure Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-09-18T11:59:27.517101" elapsed="2.672305"/>
+</kw>
+<doc>Check two successful Contact Us submissions.</doc>
+<status status="PASS" start="2026-09-18T11:59:12.243005" elapsed="17.946501"/>
+</suite>
+<suite id="s1-s1-s3" name="TC CONTACT 07" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\contact-us\TC_CONTACT_07.robot">
+<test id="s1-s1-s3-t1" name="TC_CONTACT_07 - Verify Invalid Email Validation" line="10">
+<kw name="Get Valid Contact Data" owner="contactKeywords">
+<kw name="Get Test Case Value" owner="testdata">
+<msg time="2026-09-18T11:59:30.208501" level="INFO">${data} = Name: Abhishek, Email: abhishek@test.com, Message: Need Course Details</msg>
+<var>${data}</var>
+<arg>TC_CONTACT_02</arg>
+<arg>Test Data</arg>
+<arg>${WORKBOOK_PATH}</arg>
+<doc>Return one value from the Excel ``Test Cases`` sheet by test case ID.</doc>
+<status status="PASS" start="2026-09-18T11:59:30.198583" elapsed="0.010006"/>
+</kw>
+<kw name="Parse Contact Data" owner="testdata">
+<msg time="2026-09-18T11:59:30.209329" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<arg>${data}</arg>
+<doc>Parse the comma-separated contact data used by the workbook.</doc>
+<status status="PASS" start="2026-09-18T11:59:30.209070" elapsed="0.000292"/>
+</kw>
+<return>
+<value>${contact}</value>
+<status status="PASS" start="2026-09-18T11:59:30.209434" elapsed="0.000057"/>
+</return>
+<msg time="2026-09-18T11:59:30.209640" level="INFO">${contact} = {'name': 'Abhishek', 'email': 'abhishek@test.com', 'message': 'Need Course Details'}</msg>
+<var>${contact}</var>
+<status status="PASS" start="2026-09-18T11:59:30.198286" elapsed="0.011400"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${contact}</arg>
+<arg>email=abc@</arg>
+<doc>Adds the given `key_value_pairs` and/or `items` to the `dictionary`.</doc>
+<status status="PASS" start="2026-09-18T11:59:30.210393" elapsed="0.000536"/>
+</kw>
+<kw name="Open Contact Page" owner="contactKeywords">
+<kw name="Open Application At URL" owner="commomKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:30.212307" level="INFO">Opening browser 'chrome' to base url 'https://www.edureka.co/contact-us'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-18T11:59:30.212121" elapsed="6.111768"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.324237" elapsed="0.001296"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.325717" elapsed="0.038596"/>
+</kw>
+<arg>${CONTACT_URL}</arg>
+<status status="PASS" start="2026-09-18T11:59:30.211691" elapsed="6.152787"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.365238" elapsed="0.008374"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.364753" elapsed="0.009006"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_FORM}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.373949" elapsed="0.462639"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:30.211352" elapsed="6.625389"/>
+</kw>
+<kw name="Submit Contact Form With Missing Required Field" owner="contactKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_NAME}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.837679" elapsed="0.030872"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:36.872066" level="INFO">Typing text 'Abhishek' into text field 'id=first_name'.</msg>
+<arg>${CONTACT_NAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:36.870837" elapsed="0.192367"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:37.064251" level="INFO">Typing text '8951755408' into text field 'id=mobile'.</msg>
+<arg>${CONTACT_PHONE_INPUT}</arg>
+<arg>${phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:37.063764" elapsed="0.180693"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:37.245302" level="INFO">Typing text 'abc@' into text field 'id=email'.</msg>
+<arg>${CONTACT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:37.244833" elapsed="0.100193"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:37.345838" level="INFO">Typing text 'Need Course Details' into text field 'id=query'.</msg>
+<arg>${CONTACT_QUERY}</arg>
+<arg>${message}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:37.345373" elapsed="0.276186"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-09-18T11:59:37.621872" elapsed="0.294274"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:37.916767" level="INFO">Clicking element 'xpath=//form[@id="contactform"]//button[normalize-space()="Send Message"]'.</msg>
+<arg>${CONTACT_SUBMIT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:37.916438" elapsed="0.131295"/>
+</kw>
+<arg>${contact}[name]</arg>
+<arg>${CONTACT_PHONE}</arg>
+<arg>${contact}[email]</arg>
+<arg>${contact}[message]</arg>
+<status status="PASS" start="2026-09-18T11:59:36.837203" elapsed="1.210701"/>
+</kw>
+<kw name="Verify Contact Validation Is Displayed" owner="contactKeywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:38.075023" level="INFO">${error_count} = 1</msg>
+<var>${error_count}</var>
+<arg>${CONTACT_ERRORS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.048751" elapsed="0.026350"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:38.075657" level="INFO">Executing JavaScript:
+return document.querySelector('#contactform') &amp;&amp; !document.querySelector('#contactform').checkValidity();
+Without any arguments.</msg>
+<msg time="2026-09-18T11:59:38.098077" level="INFO">${native_invalid} = False</msg>
+<var>${native_invalid}</var>
+<arg>return document.querySelector('#contactform') &amp;&amp; !document.querySelector('#contactform').checkValidity();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.075441" elapsed="0.022734"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${error_count} &gt; 0 or ${native_invalid}</arg>
+<arg>No validation feedback was displayed for invalid contact data.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.098530" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:38.048378" elapsed="0.051368"/>
+</kw>
+<doc>Checks validation feedback for an invalid email.</doc>
+<tag>contact</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-09-18T11:59:30.197423" elapsed="7.902940"/>
+</test>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Failure Screenshot" owner="commomKeywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:38.288705" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/failure-70.png"&gt;&lt;img src="../screenshots/failure-70.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}${/}failure-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.102793" elapsed="0.186084"/>
+</kw>
+<doc>Saves a screenshot with a stable, timestamped Robot name.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.102340" elapsed="0.186718"/>
+</kw>
+<kw name="Close Application" owner="commomKeywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.289689" elapsed="2.491664"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.289368" elapsed="2.492142"/>
+</kw>
+<arg>Capture Failure Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-09-18T11:59:38.101572" elapsed="2.680016"/>
+</kw>
+<doc>Check validation for an invalid email.</doc>
+<status status="PASS" start="2026-09-18T11:59:30.191064" elapsed="10.590583"/>
+</suite>
+<status status="PASS" start="2026-09-18T11:58:56.898502" elapsed="43.884477"/>
+</suite>
+<suite id="s1-s2" name="Home Page" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\home page">
+<suite id="s1-s2-s1" name="TC HOME 05" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\home page\TC_HOME_05.robot">
+<test id="s1-s2-s1-t1" name="TC_HOME_05 - Verify Navigation Menu Links" line="10">
+<kw name="Open Home Page" owner="homeKeywords">
+<kw name="Open Application At URL" owner="commomKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:40.798909" level="INFO">Opening browser 'chrome' to base url 'https://www.edureka.co/'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-18T11:59:40.798528" elapsed="4.037902"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.836759" elapsed="0.001777"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.838806" elapsed="0.066457"/>
+</kw>
+<arg>${BASE_URL}</arg>
+<status status="PASS" start="2026-09-18T11:59:40.797842" elapsed="4.107571"/>
+</kw>
+<kw name="Verify Edureka Home Page Is Loaded" owner="homeKeywords">
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.906622" elapsed="0.013865"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.906268" elapsed="0.014425"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:44.935311" level="INFO">Current page contains element 'css=body'.</msg>
+<arg>${HOME_BODY}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.920944" elapsed="0.014556"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:44.959417" level="INFO">Current page contains text 'Edureka'.</msg>
+<arg>Edureka</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.935734" elapsed="0.023831"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:44.965057" level="INFO">${title} = Edureka | Online Courses, PGP &amp; Degree Programs for Upskilling</msg>
+<var>${title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.959790" elapsed="0.005327"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${title}</arg>
+<arg>Edureka</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.965457" elapsed="0.001073"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-09-18T11:59:44.968084" level="INFO">Workbook expectation: Home page should open successfully</msg>
+<arg>Workbook expectation: ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.967203" elapsed="0.000984"/>
+</kw>
+<arg>Home page should open successfully</arg>
+<status status="PASS" start="2026-09-18T11:59:44.905755" elapsed="0.062586"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:40.797410" elapsed="4.171028"/>
+</kw>
+<kw name="Open Contact Us From Navigation" owner="homeKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTACT_LINK}</arg>
+<arg>${EXPLICIT_WAIT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.969272" elapsed="0.025044"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:44.998548" level="INFO">Clicking element 'xpath=//a[normalize-space()="Contact Us"]'.</msg>
+<msg time="2026-09-18T11:59:45.435968" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-09-18T11:59:45.436316" level="FAIL">StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=153.0.8010.37); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cf191035+5a95]
+	chromedriver!(No symbol) [0x7ff7cf0b2c70]
+	chromedriver!(No symbol) [0x7ff7ceed4a7d]
+	chromedriver!(No symbol) [0x7ff7ceedcb61]
+	chromedriver!(No symbol) [0x7ff7ceedfaa5]
+	chromedriver!(No symbol) [0x7ff7ceedfb6f]
+	chromedriver!(No symbol) [0x7ff7cef37aaa]
+	chromedriver!(No symbol) [0x7ff7cef35391]
+	chromedriver!(No symbol) [0x7ff7cef32cb7]
+	chromedriver!(No symbol) [0x7ff7cef31b70]
+	chromedriver!(No symbol) [0x7ff7cef23f2c]
+	chromedriver!(No symbol) [0x7ff7cef593ea]
+	chromedriver!(No symbol) [0x7ff7cef23396]
+	chromedriver!(No symbol) [0x7ff7cef7fbea]
+	chromedriver!(No symbol) [0x7ff7cef21d02]
+	chromedriver!(No symbol) [0x7ff7cef22b13]
+	chromedriver!GetHandleVerifier [0x7ff7cf5b1411+425e71]
+	chromedriver!GetHandleVerifier [0x7ff7cf5dca47+4514a7]
+	chromedriver!GetHandleVerifier [0x7ff7cf5d094e+4453ae]
+	chromedriver!GetHandleVerifier [0x7ff7cf28bf6e+1009ce]
+	chromedriver!(No symbol) [0x7ff7cf0c0a05]
+	chromedriver!(No symbol) [0x7ff7cf0bbcf4]
+	chromedriver!(No symbol) [0x7ff7cf0bbe84]
+	chromedriver!(No symbol) [0x7ff7cf0a66ac]
+	KERNEL32!BaseThreadInitThunk [0x7fff21efcd87+17]
+	ntdll!RtlUserThreadStart [0x7fff22f0caec+2c]
+</msg>
+<arg>${CONTACT_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-09-18T11:59:44.995539" elapsed="0.452300">StaleElementReferenceException: Message: stale element reference: stale element not found in the current frame
+  (Session info: chrome=153.0.8010.37); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cf191035+5a95]
+	chromedriver!(No symbol) [0x7ff7cf0b2c70]
+	chromedriver!(No symbol) [0x7ff7ceed4a7d]
+	chromedriver!(No symbol) [0x7ff7ceedcb61]
+	chromedriver!(No symbol) [0x7ff7ceedfaa5]
+	chromedriver!(No symbol) [0x7ff7ceedfb6f]
+	chromedriver!(No symbol) [0x7ff7cef37aaa]
+	chromedriver!(No symbol) [0x7ff7cef35391]
+	chromedriver!(No symbol) [0x7ff7cef32cb7]
+	chromedriver!(No symbol) [0x7ff7cef31b70]
+	chromedriver!(No symbol) [0x7ff7cef23f2c]
+	chromedriver!(No symbol) [0x7ff7cef593ea]
+	chromedriver!(No symbol) [0x7ff7cef23396]
+	chromedriver!(No symbol) [0x7ff7cef7fbea]
+	chromedriver!(No symbol) [0x7ff7cef21d02]
+	chromedriver!(No symbol) [0x7ff7cef22b13]
+	chromedriver!GetHandleVerifier [0x7ff7cf5b1411+425e71]
+	chromedriver!GetHandleVerifier [0x7ff7cf5dca47+4514a7]
+	chromedriver!GetHandleVerifier [0x7ff7cf5d094e+4453ae]
+	chromedriver!GetHandleVerifier [0x7ff7cf28bf6e+1009ce]
+	chromedriver!(No symbol) [0x7ff7cf0c0a05]
+	chromedriver!(No symbol) [0x7ff7cf0bbcf4]
+	chromedriver!(No symbol) [0x7ff7cf0bbe84]
+	chromedriver!(No symbol) [0x7ff7cf0a66ac]
+	KERNEL32!BaseThreadInitThunk [0x7fff21efcd87+17]
+	ntdll!RtlUserThreadStart [0x7fff22f0caec+2c]
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:46.450473" level="INFO">Clicking element 'xpath=//a[normalize-space()="Contact Us"]'.</msg>
+<arg>${CONTACT_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:46.449574" elapsed="2.959546"/>
+</kw>
+<arg>5x</arg>
+<arg>1s</arg>
+<arg>Click Element</arg>
+<arg>${CONTACT_LINK}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2026-09-18T11:59:44.994730" elapsed="4.414582"/>
+</kw>
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.410090" elapsed="0.006268"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.409639" elapsed="0.006965"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:49.423356" level="INFO">Current location contains '/contact-us'.</msg>
+<arg>/contact-us</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.416854" elapsed="0.006627"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:44.968929" elapsed="4.454668"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:49.445433" level="INFO">Current page contains text 'Contact'.</msg>
+<arg>Contact</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.423942" elapsed="0.021620"/>
+</kw>
+<doc>Opens Home Page and selects Contact Us.</doc>
+<tag>home</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-09-18T11:59:40.796509" elapsed="8.649464"/>
+</test>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Failure Screenshot" owner="commomKeywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:49.892389" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/failure-71.png"&gt;&lt;img src="../screenshots/failure-71.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}${/}failure-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.447858" elapsed="0.444766"/>
+</kw>
+<doc>Saves a screenshot with a stable, timestamped Robot name.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.447493" elapsed="0.445296"/>
+</kw>
+<kw name="Close Application" owner="commomKeywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.893423" elapsed="2.830055"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.893138" elapsed="2.830515"/>
+</kw>
+<arg>Capture Failure Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-09-18T11:59:49.446928" elapsed="3.276800"/>
+</kw>
+<doc>Check navigation from Home Page to Contact Us.</doc>
+<status status="PASS" start="2026-09-18T11:59:40.785519" elapsed="11.938272"/>
+</suite>
+<suite id="s1-s2-s2" name="TC HOME 06" source="C:\Users\absinghr\OneDrive - Capgemini\Documents\Capstone Project\tests\home page\TC_HOME_06.robot">
+<test id="s1-s2-s2-t1" name="TC_HOME_06 - Verify Home Page Links" line="10">
+<kw name="Open Home Page" owner="homeKeywords">
+<kw name="Open Application At URL" owner="commomKeywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:52.732857" level="INFO">Opening browser 'chrome' to base url 'https://www.edureka.co/'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-09-18T11:59:52.732593" elapsed="3.361981"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>${IMPLICIT_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.094843" elapsed="0.001242"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.096273" elapsed="0.037546"/>
+</kw>
+<arg>${BASE_URL}</arg>
+<status status="PASS" start="2026-09-18T11:59:52.731907" elapsed="3.402102"/>
+</kw>
+<kw name="Verify Edureka Home Page Is Loaded" owner="homeKeywords">
+<kw name="Wait Until Page Is Ready" owner="commomKeywords">
+<kw name="Wait For Condition" owner="SeleniumLibrary">
+<arg>return document.readyState === 'complete';</arg>
+<arg>timeout=${EXPLICIT_WAIT}</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.135231" elapsed="0.007174"/>
+</kw>
+<doc>Waits for the document to finish loading.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.134822" elapsed="0.007857"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.155571" level="INFO">Current page contains element 'css=body'.</msg>
+<arg>${HOME_BODY}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.142913" elapsed="0.012825"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.177663" level="INFO">Current page contains text 'Edureka'.</msg>
+<arg>Edureka</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.156040" elapsed="0.021753"/>
+</kw>
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.323077" level="INFO">${title} = Edureka | Online Courses, PGP &amp; Degree Programs for Upskilling</msg>
+<var>${title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.178013" elapsed="0.145133"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${title}</arg>
+<arg>Edureka</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.323385" elapsed="0.000447"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-09-18T11:59:56.324334" level="INFO">Workbook expectation: Home page should open successfully</msg>
+<arg>Workbook expectation: ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.324031" elapsed="0.000376"/>
+</kw>
+<arg>Home page should open successfully</arg>
+<status status="PASS" start="2026-09-18T11:59:56.134362" elapsed="0.190174"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:52.731319" elapsed="3.593340"/>
+</kw>
+<kw name="Verify Home Page Links Are Available" owner="homeKeywords">
+<kw name="Get Element Count" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.375806" level="INFO">${link_count} = 164</msg>
+<var>${link_count}</var>
+<arg>${HOME_LINKS}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.325459" elapsed="0.050427"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${link_count} &gt; 0</arg>
+<arg>No navigable links were found on the home page.</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.376152" elapsed="0.000517"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.377138" level="INFO">Executing JavaScript:
+return Array.from(document.querySelectorAll('body a[href]')).filter(link =&gt; !link.getAttribute('href') || link.getAttribute('href').trim().startsWith('javascript:')).length;
+Without any arguments.</msg>
+<msg time="2026-09-18T11:59:56.387223" level="INFO">${invalid_count} = 0</msg>
+<var>${invalid_count}</var>
+<arg>return Array.from(document.querySelectorAll('body a[href]')).filter(link =&gt; !link.getAttribute('href') || link.getAttribute('href').trim().startsWith('javascript:')).length;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.376941" elapsed="0.010352"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-09-18T11:59:56.388046" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${invalid_count}</arg>
+<arg>0</arg>
+<arg>A home-page link has an empty or unsupported target.</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.387539" elapsed="0.000593"/>
+</kw>
+<status status="PASS" start="2026-09-18T11:59:56.325121" elapsed="0.063112"/>
+</kw>
+<doc>Checks that Home Page links have usable targets.</doc>
+<tag>home</tag>
+<tag>regression</tag>
+<status status="PASS" start="2026-09-18T11:59:52.729965" elapsed="3.658567"/>
+</test>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Capture Failure Screenshot" owner="commomKeywords">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-09-18T11:59:56.899597" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../screenshots/failure-72.png"&gt;&lt;img src="../screenshots/failure-72.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${SCREENSHOT_DIR}${/}failure-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.390627" elapsed="0.509159"/>
+</kw>
+<doc>Saves a screenshot with a stable, timestamped Robot name.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.390219" elapsed="0.509800"/>
+</kw>
+<kw name="Close Application" owner="commomKeywords">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.900721" elapsed="2.454367"/>
+</kw>
+<doc>Closes the active browser session.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.900382" elapsed="2.455024"/>
+</kw>
+<arg>Capture Failure Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Application</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2026-09-18T11:59:56.389424" elapsed="2.966067"/>
+</kw>
+<doc>Check links on the Home Page.</doc>
+<status status="PASS" start="2026-09-18T11:59:52.724925" elapsed="6.630645"/>
+</suite>
+<status status="PASS" start="2026-09-18T11:59:40.783718" elapsed="18.573047"/>
+</suite>
+<status status="PASS" start="2026-09-18T11:58:56.831103" elapsed="62.526504"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="3" fail="0" skip="0">contact</stat>
+<stat pass="2" fail="0" skip="0">home</stat>
+<stat pass="4" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="5" fail="0" skip="0">Tests</stat>
+<stat name="Contact-Us" id="s1-s1" pass="3" fail="0" skip="0">Tests.Contact-Us</stat>
+<stat name="TC CONTACT 02" id="s1-s1-s1" pass="1" fail="0" skip="0">Tests.Contact-Us.TC CONTACT 02</stat>
+<stat name="TC CONTACT 04" id="s1-s1-s2" pass="1" fail="0" skip="0">Tests.Contact-Us.TC CONTACT 04</stat>
+<stat name="TC CONTACT 07" id="s1-s1-s3" pass="1" fail="0" skip="0">Tests.Contact-Us.TC CONTACT 07</stat>
+<stat name="Home Page" id="s1-s2" pass="2" fail="0" skip="0">Tests.Home Page</stat>
+<stat name="TC HOME 05" id="s1-s2-s1" pass="1" fail="0" skip="0">Tests.Home Page.TC HOME 05</stat>
+<stat name="TC HOME 06" id="s1-s2-s2" pass="1" fail="0" skip="0">Tests.Home Page.TC HOME 06</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

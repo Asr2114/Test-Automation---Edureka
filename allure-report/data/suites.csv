@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Submits the same valid data twice.","15399","TC_CONTACT_04 - Verify Multiple Successful Submissions","Home Page & Contact-Us","2026-09-18","passed","2026-09-18","TC CONTACT 04","Contact-Us","",""
+"Opens Home Page and selects Contact Us.","12488","TC_HOME_05 - Verify Navigation Menu Links","Home Page & Contact-Us","2026-09-18","passed","2026-09-18","TC HOME 05","Home Page","",""
+"Checks that Home Page links have usable targets.","3972","TC_HOME_06 - Verify Home Page Links","Home Page & Contact-Us","2026-09-18","passed","2026-09-18","TC HOME 06","Home Page","",""
+"Checks validation feedback for an invalid email.","8130","TC_CONTACT_07 - Verify Invalid Email Validation","Home Page & Contact-Us","2026-09-18","passed","2026-09-18","TC CONTACT 07","Contact-Us","",""
+"Submits valid data from the workbook.","11162","TC_CONTACT_02 - Verify Valid Contact Submission","Home Page & Contact-Us","2026-09-18","passed","2026-09-18","TC CONTACT 02","Contact-Us","",""
